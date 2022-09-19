@@ -1,0 +1,4 @@
+- Access Command: ```ssh root@194.195.212.245```
+- IP Address:   ```194.195.212.245```
+- Password: ```passwordisstrong```
+- Username:  ```root```
