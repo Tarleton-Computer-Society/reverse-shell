@@ -2,9 +2,11 @@ import socket
 import os
 import subprocess
 import sys
+# SERVER_HOST = sys.argv[1]
+# SERVER_PORT = int(sys.argv[2])
 
-SERVER_HOST = sys.argv[1]
-SERVER_PORT = int(sys.argv[2])
+SERVER_HOST ='0.0.0.0'
+SERVER_PORT = 5050
 BUFFER_SIZE = 1024 * 128 # 128KB max size of messages, feel free to increase
 # separator string for sending 2 messages in one go
 SEPARATOR = "<sep>"
