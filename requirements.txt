@@ -1,0 +1,4 @@
+opencv-python
+sounddevice
+wavio
+scipy

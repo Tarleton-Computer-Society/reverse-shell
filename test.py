@@ -1,5 +1,10 @@
 import pyautogui
 import cv2
+import sounddevice as sd
+from scipy.io.wavfile import write
+import sounddevice as sd
+import soundfile as sf
+import wavio as wv
 def screenshot(filename):
     filen = pyautogui.screenshot()
     filen.save(f'{filename}.png')
@@ -20,4 +25,18 @@ def takpic(filename):
 
     cap.release()
     
-takpic('picc')
+def recordaudio(filename,duration):
+ 
+
+    samplerate = 44100  # Hertz
+    seconds = duration
+    filename = f'{filename}.wav'
+    
+    myrecording = sd.rec(int(seconds * samplerate), samplerate=samplerate,
+                         channels=1)
+    sd.wait()
+    sf.write(filename, myrecording, samplerate)
+    
+   
+    
+recordaudio("testaudi",6) 
